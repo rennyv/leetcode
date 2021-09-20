@@ -16,9 +16,6 @@ class Solution:
         return dp[-1]
         
 
-        
-
-
 def test_ex1():
     s = "12"
     ans = 2
