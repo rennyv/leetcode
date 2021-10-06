@@ -8,9 +8,6 @@ class Solution:
          if m == 0:
             return False
       return False
-            
-
-        
 
 def test_ex1():
    nums = [2,3,1,1,4]
