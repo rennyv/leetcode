@@ -1,16 +1,16 @@
 
+from typing import List
+
 class Solution:
-    def maxProfit(self, prices) -> int:
-        #Sliding Window, O(n)
-        max_diff = 0
-        min_day = prices[0]
+    def maxProfit(self,  prices: List[int]) -> int:
+        min_p = prices[0]
+        profit = 0
 
         for p in prices[1:]:
-            if p > min_day:
-                max_diff = max(max_diff, p-min_day)
-            min_day = min(min_day, p)
-        return max_diff
-
+            profit = max(p - min_p, profit)
+            min_p = min(min_p, p)
+        
+        return profit
 
 def test_ex1():
     prices = [7,1,5,3,6,4]
@@ -26,4 +26,3 @@ def test_ex2():
     sol = Solution()
     assert ans == sol.maxProfit(prices)
 
-test_ex1()
