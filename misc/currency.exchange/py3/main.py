@@ -60,6 +60,8 @@ def test_ex1():
 
     sol = Solution()
     assert ans == round(sol.ConvertRate(start, end, data), 2)
+
+test_ex1()
     
     
 
