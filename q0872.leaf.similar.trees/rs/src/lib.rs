@@ -8,13 +8,14 @@ impl Solution {
     pub fn leaf_similar(root1: Option<Rc<RefCell<TreeNode>>>, root2: Option<Rc<RefCell<TreeNode>>>) -> bool {
         fn collect_leaves(n: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
             match n {
-                None => vec![],
+                None => vec![], 
                 Some(n) => {
-                    if n.borrow().left.is_none() && n.borrow().right.is_none() {
-                        return vec![n.borrow().val];
+                    let node = n.borrow();
+                    if node.left.is_none() && node.right.is_none() {
+                        return vec![node.val]; 
                     }
-                    let mut list = collect_leaves(n.borrow().left.clone());
-                    list.extend(collect_leaves(n.borrow().right.clone()));
+                    let mut list = collect_leaves(node.left.clone());
+                    list.extend(collect_leaves(node.right.clone()));
                     list
                 }
             }
